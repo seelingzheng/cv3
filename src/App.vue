@@ -54,6 +54,25 @@
                 <el-menu-item index="1-3">选项3</el-menu-item>
               </el-menu-item-group>
             </el-submenu>
+            <el-submenu index="2">
+              <template slot="title">
+                <i class="el-icon-location"></i>
+                <span slot="title">其他案例</span>
+              </template>
+              <el-menu-item-group>
+                <span slot="title">Shader</span>
+                <el-menu-item
+                  index="2-1"
+                  :route='{path:"/snow"}'
+                >Snow
+                </el-menu-item>
+                <el-menu-item
+                  index="2-2"
+                  :route='{path:"/rain"}'
+                >Rain</el-menu-item>
+              </el-menu-item-group>
+
+            </el-submenu>
           </el-menu>
         </div>
       </el-col>
