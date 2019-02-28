@@ -9,7 +9,6 @@ import Cesium from "cesium/Cesium";
 import BaseCesium from "./BaseCesium";
 
 export default {
-  name: "HelloCessium",
   components: {
     BaseCesium
   },

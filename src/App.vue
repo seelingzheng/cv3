@@ -1,75 +1,68 @@
 <template>
   <div id="app">
-    <el-row
-      type="flex"
-      class="row-bg"
-    >
-      <el-col :span="4">
+    <el-row class="row-bg tac">
+      <el-col
+        :span="4"
+        class="menu-container"
+      >
         <div class="grid-content bg-purple">
           <!-- <div id="nav">
             <router-link to="/">Home</router-link> |
             <router-link to="/cesium">cesium</router-link>
           </div> -->
-          <div>
-            <div
-              v-if="!isCollapse"
-              @click="showHide()"
+          <div class="banner">
+            <img
+              src="images/cesium.png"
+              alt="cesium"
             >
-              Cesium 案例集 <i class="el-icon-menu"></i>
-            </div>
-            <div
-              v-else
-              @click="showHide()"
-            >
-              <i class="el-icon-menu"></i></div>
-
+            Cesium 案例集
           </div>
+
           <el-menu
-            default-active="1-1"
-            class="el-menu-vertical-demo"
             @open="handleOpen"
             @close="handleClose"
-            :collapse="isCollapse"
+            background-color="#545c64"
+            text-color="#fff"
+            active-text-color="#ffd04b"
             router
           >
 
             <el-submenu index="1">
               <template slot="title">
-                <i class="el-icon-location"></i>
-                <span slot="title">官方案例</span>
+                <i class="fa fa-map"></i>
+                <span slot="title"> 官方案例</span>
               </template>
-              <el-menu-item-group>
-                <span slot="title">官方案例</span>
-                <el-menu-item
-                  index="1-1"
-                  :route='{path:"/"}'
-                >Hello
-                </el-menu-item>
-                <el-menu-item
-                  index="1-2"
-                  :route='{path:"/eapi"}'
-                >EntityAPI</el-menu-item>
-              </el-menu-item-group>
-              <el-menu-item-group title="分组2">
-                <el-menu-item index="1-3">选项3</el-menu-item>
-              </el-menu-item-group>
+              <!-- <el-menu-item-group> -->
+              <span slot="title"></span>
+              <el-menu-item
+                index="1-1"
+                :route='{path:"/"}'
+              >Hello
+              </el-menu-item>
+              <el-menu-item
+                index="1-2"
+                :route='{path:"/eapi"}'
+              >EntityAPI</el-menu-item>
+              <!-- </el-menu-item-group> -->
+
             </el-submenu>
             <el-submenu index="2">
               <template slot="title">
-                <i class="el-icon-location"></i>
-                <span slot="title">其他案例</span>
+                <i class="fa fa-internet-explorer"></i>
+                <span slot="title"> 其他案例</span>
               </template>
               <el-menu-item-group>
                 <span slot="title">Shader</span>
                 <el-menu-item
                   index="2-1"
-                  :route='{path:"/snow"}'
-                >Snow
+                  :route='{path:"/shaders"}'
+                >Shaders
                 </el-menu-item>
                 <el-menu-item
                   index="2-2"
-                  :route='{path:"/rain"}'
-                >Rain</el-menu-item>
+                  :route='{path:"/materials"}'
+                >Materials
+                </el-menu-item>
               </el-menu-item-group>
 
             </el-submenu>
@@ -89,43 +82,56 @@
 export default {
   data() {
     return {
-      isCollapse: false
+      isCollapse: false,
+      pullV: 0
     };
   },
   methods: {
     showHide() {
       this.isCollapse = !this.isCollapse;
+      if (isCollapse) {
+        this.pullV = 2;
+      } else {
+        this.pullV = 0;
+      }
     },
-    handleOpen() {},
-    handleClose() {}
+    handleOpen(key, keyPath) {
+      console.log(key, keyPath);
+    },
+    handleClose(key, keyPath) {
+      console.log(key, keyPath);
+    }
   }
 };
 </script>
 
-<style>
+<style lang='scss' scope>
+body {
+  margin: 0;
+  padding: 0;
+}
 #app {
+  user-select: none;
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-
-.el-menu-vertical-demo:not(.el-menu--collapse) {
-  user-select: none;
-
-  min-height: calc(100vh);
+  .el-menu {
+    border-right: 0;
+  }
+  .menu-container {
+    background-color: #545c64;
+    color: #fff;
+    height: calc(100vh);
+  }
+  .banner {
+    display: flex;
+    line-height: 60px;
+    margin-left: 25px;
+    img {
+      width: 60px;
+      height: 60px;
+    }
+  }
 }
 </style>

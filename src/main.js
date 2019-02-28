@@ -5,11 +5,19 @@ import router from './router'
 //引入 cesium
 import Cesium from 'cesium/Cesium'
 import widget from 'cesium/Widgets/widgets.css'
+
+Vue.Cesium = Vue.prototype.$Cesium = Cesium;
+
 // ElementUI
 import 'element-ui/lib/theme-chalk/index.css';
 import ElementUI from "element-ui";
 Vue.use(ElementUI);
-Vue.Cesium = Vue.prototype.$Cesium = Cesium;
+
+import '../public/font-awesome-4.7.0/css/font-awesome.min.css'
+
+import _ from 'lodash'
+
+Vue._ = Vue.prototype._ = _;
 
 Vue.config.productionTip = false
 

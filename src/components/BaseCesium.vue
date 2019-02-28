@@ -6,6 +6,7 @@
 import Cesium from "cesium/Cesium";
 export default {
   name: "BaseCesium",
+  props: ["imgurl"],
   data() {
     return {
       viewer: null
@@ -38,12 +39,17 @@ export default {
       showRenderLoopErrors: false
     };
 
-    //terrainProvider: Cesium.createWorldTerrain()
+    if (this.imgurl) {
+      initOption["imageryProvider"] = new Cesium.SingleTileImageryProvider({
+        url: this.imgurl
+      });
+    }
 
     this.viewer = new Cesium.Viewer("cesiumContainer", initOption);
     //去除版权信息
     this.viewer._cesiumWidget._creditContainer.style.display = "none";
     this.$emit("getViewer", this.viewer);
+    this.addLogo();
   },
   methods: {
     getViewer(found) {
@@ -56,6 +62,28 @@ export default {
         }
       }
       checkForMap();
+    },
+    addLogo() {
+      var mapDom = document.getElementById("cesiumContainer");
+      console.log(mapDom.clientWidth, mapDom.clientHeight);
+      var viewportQuad = new Cesium.ViewportQuad();
+      viewportQuad.rectangle = new Cesium.BoundingRectangle(
+        mapDom.clientWidth - 85,
+        5,
+        80,
+        80
+      );
+      this.viewer.scene.primitives.add(viewportQuad);
+
+      viewportQuad.material = new Cesium.Material({
+        fabric: {
+          type: "Image",
+          uniforms: {
+            color: new Cesium.Color(1.0, 1.0, 1.0, 1.0),
+            image: "images/qr.jpg"
+          }
+        }
+      });
     }
   }
 };
@@ -64,8 +92,8 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 #cesiumContainer {
-  width: calc(85vw);
-  height: calc(98vh);
+  width: auto;
+  height: calc(100vh);
 }
 .cesium-widget-credits {
   display: none !important;
