@@ -1,80 +1,58 @@
 <template>
   <div id="app">
     <el-row class="row-bg tac">
-      <el-col
-        :span="4"
-        class="menu-container"
-      >
+      <el-col :span="4" class="menu-container">
         <div class="grid-content bg-purple">
-          <!-- <div id="nav">
-            <router-link to="/">Home</router-link> |
-            <router-link to="/cesium">cesium</router-link>
-          </div> -->
           <div class="banner">
-            <img
-              src="images/cesium.png"
-              alt="cesium"
-            >
+            <img src="images/cesium.png" alt="cesium">
             Cesium 案例集
           </div>
 
           <el-menu
             @open="handleOpen"
             @close="handleClose"
+            @select="handleSelect"
             background-color="#545c64"
             text-color="#fff"
             active-text-color="#ffd04b"
             router
           >
-
             <el-submenu index="1">
               <template slot="title">
                 <i class="fa fa-map"></i>
-                <span slot="title"> 官方案例</span>
+                <span slot="title">&nbsp;官方API</span>
               </template>
               <!-- <el-menu-item-group> -->
               <span slot="title"></span>
-              <el-menu-item
-                index="1-1"
-                :route='{path:"/"}'
-              >Hello
-              </el-menu-item>
-              <el-menu-item
-                index="1-2"
-                :route='{path:"/eapi"}'
-              >EntityAPI</el-menu-item>
+              <el-menu-item index="1-1" :route="{path:'/'}">Hello</el-menu-item>
+              <el-menu-item index="1-2" :route="{path:'/imagery'}">imageryProvider</el-menu-item>
+              <el-menu-item index="1-3" :route="{path:'/eapi'}">EntityAPI</el-menu-item>
               <!-- </el-menu-item-group> -->
-
             </el-submenu>
             <el-submenu index="2">
               <template slot="title">
                 <i class="fa fa-internet-explorer"></i>
-                <span slot="title"> 其他案例</span>
+                <span slot="title">&nbsp;综合案例</span>
               </template>
               <el-menu-item-group>
                 <span slot="title">Shader</span>
-                <el-menu-item
-                  index="2-1"
-                  :route='{path:"/shaders"}'
-                >Shaders
-                </el-menu-item>
-                <el-menu-item
-                  index="2-2"
-                  :route='{path:"/materials"}'
-                >Materials
-                </el-menu-item>
+                <el-menu-item index="2-1" :route="{path:'/shaders'}">Shaders</el-menu-item>
+                <el-menu-item index="2-2" :route="{path:'/materials'}">Materials</el-menu-item>
+                <!-- <el-menu-item
+                  index="2-3"
+                  :route='{path:"/heatmap"}'
+                >Heatmap
+                </el-menu-item>-->
               </el-menu-item-group>
-
             </el-submenu>
           </el-menu>
         </div>
       </el-col>
       <el-col :span="20">
         <div class="grid-content bg-purple-light">
-          <router-view />
+          <router-view/>
         </div>
       </el-col>
-
     </el-row>
   </div>
 </template>
@@ -95,11 +73,14 @@ export default {
         this.pullV = 0;
       }
     },
+    handleSelect(index, indexPath) {
+      console.log(index, indexPath);
+    },
     handleOpen(key, keyPath) {
-      console.log(key, keyPath);
+      // console.log(key, keyPath);
     },
     handleClose(key, keyPath) {
-      console.log(key, keyPath);
+      // console.log(key, keyPath);
     }
   }
 };
@@ -131,6 +112,24 @@ body {
     img {
       width: 60px;
       height: 60px;
+    }
+  }
+  .btn-box {
+    user-select: none;
+    position: absolute;
+    right: 10px;
+    z-index: 1;
+    display: flex;
+    background: #0c0c7566;
+    border-radius: 5px;
+    &-item {
+      cursor: pointer;
+      padding: 3px;
+      color: white;
+      &:hover,
+      &-selected {
+        color: aqua;
+      }
     }
   }
 }

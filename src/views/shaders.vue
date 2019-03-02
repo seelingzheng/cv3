@@ -73,22 +73,4 @@ export default {
  
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang='scss' scoped>
-.btn-box {
-  user-select: none;
-  position: absolute;
-  right: 10px;
-  z-index: 1;
-  display: flex;
-  background: #0c0c7566;
-  border-radius: 5px;
-  &-item {
-    cursor: pointer;
-    padding: 3px;
-    color: white;
-    &:hover,
-    &-selected {
-      color: aqua;
-    }
-  }
-}
 </style>

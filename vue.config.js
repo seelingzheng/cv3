@@ -5,6 +5,7 @@ const path = require('path')
 const debug = process.env.NODE_ENV !== 'production'
 let cesiumSource = './node_modules/cesium/Source'
 let cesiumWorkers = '../Build/Cesium/Workers'
+// let cesiumWorkers = 'Workers'
 module.exports = {
   baseUrl: '',
   devServer: {

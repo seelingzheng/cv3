@@ -7,6 +7,9 @@ var routes = [{
   path: '/',
   name: 'cesium',
   component: HelloCesium
+}, {
+  path: '*',
+  redirect: '/',
 }]
 let files = require.context('./views', false, /\.vue$/)
 

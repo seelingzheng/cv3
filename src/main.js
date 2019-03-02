@@ -13,11 +13,14 @@ import 'element-ui/lib/theme-chalk/index.css';
 import ElementUI from "element-ui";
 Vue.use(ElementUI);
 
-import '../public/font-awesome-4.7.0/css/font-awesome.min.css'
+import '../public/css/font-awesome-4.7.0/css/font-awesome.min.css'
 
 import _ from 'lodash'
 
 Vue._ = Vue.prototype._ = _;
+
+import "@/assets/libs/heatmap/CesiumHeatmap.js"
+
 
 Vue.config.productionTip = false
 

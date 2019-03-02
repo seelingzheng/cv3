@@ -12,33 +12,13 @@
         @click="getEntity('canvas')"
       >Canvas</div>
     </btn>
-    <base-cesium
-      @getViewer="getViewer"
-      :imgurl="imgurl"
-    ></base-cesium>
-    <video
-      id="trailer"
-      muted=""
-      autoplay=""
-      loop=""
-      crossorigin=""
-      controls=""
-    >
-      <source
-        src="video/big-buck-bunny_trailer.webm"
-        type="video/webm"
-      >
-      <source
-        src="video/big-buck-bunny_trailer.mp4"
-        type="video/mp4"
-      >
-      <source
-        src="video/big-buck-bunny_trailer.mov"
-        type="video/quicktime"
-      >
-      Your browser does not support the <code>video</code> element.
+    <base-cesium @getViewer="getViewer" :imgurl="imgurl"></base-cesium>
+    <video id="trailer" muted autoplay loop crossorigin controls>
+      <source src="video/big-buck-bunny_trailer.webm" type="video/webm">
+      <source src="video/big-buck-bunny_trailer.mp4" type="video/mp4">
+      <source src="video/big-buck-bunny_trailer.mov" type="video/quicktime">Your browser does not support the
+      <code>video</code> element.
     </video>
-
   </div>
 </template>
 
@@ -127,23 +107,5 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang='scss' scoped>
-.btn-box {
-  user-select: none;
-  position: absolute;
-  right: 10px;
-  z-index: 1;
-  display: flex;
-  background: #0c0c7566;
-  border-radius: 5px;
-  &-item {
-    cursor: pointer;
-    padding: 3px;
-    color: white;
-    &:hover,
-    &-selected {
-      color: aqua;
-    }
-  }
-}
 </style>
 
