@@ -25,8 +25,9 @@
               <!-- <el-menu-item-group> -->
               <span slot="title"></span>
               <el-menu-item index="1-1" :route="{path:'/'}">Hello</el-menu-item>
-              <el-menu-item index="1-2" :route="{path:'/imagery'}">imageryProvider</el-menu-item>
-              <el-menu-item index="1-3" :route="{path:'/eapi'}">EntityAPI</el-menu-item>
+              <el-menu-item index="1-2" :route="{path:'/basepick'}">BaseLayerPicker</el-menu-item>
+              <el-menu-item index="1-3" :route="{path:'/imagery'}">ImageryProvider</el-menu-item>
+              <el-menu-item index="1-4" :route="{path:'/eapi'}">EntityAPI</el-menu-item>
               <!-- </el-menu-item-group> -->
             </el-submenu>
             <el-submenu index="2">
