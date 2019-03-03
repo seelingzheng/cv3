@@ -5,7 +5,7 @@ import HelloCesium from '@/views/hellocesium.vue'
 
 var routes = [{
   path: '/',
-  name: 'cesium',
+  name: 'hello',
   component: HelloCesium
 }, {
   path: '*',

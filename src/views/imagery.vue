@@ -1,6 +1,6 @@
 <template>
   <div>
-    <btn class="btn-box">
+    <div class="btn-box">
       <div
         v-for="(item, index) in Object.keys(imgProviders)"
         :key="index"
@@ -8,7 +8,7 @@
         :class="{'btn-box-item-selected':curName==item}"
         @click="getImageryProvider(item)"
       >{{item}}</div>
-    </btn>
+    </div>
     <base-cesium @getViewer="getViewer" :imgurl="imgurl"></base-cesium>
   </div>
 </template>
@@ -47,7 +47,15 @@ export default {
           name: "createOpenStreetMapImageryProvider",
           option: { url: "https://a.tile.openstreetmap.org/" }
         },
-        ctms: { name: "createTileMapServiceImageryProvider", option: {} },
+        ctms: {
+          name: "createTileMapServiceImageryProvider",
+          option: {
+            url: "http://cesiumjs.org/tilesets/imagery/blackmarble",
+            // proxy: new Cesium.DefaultProxy("/proxy/"),
+            // maximumLevel: 8,
+            // credit: "Black Marble imagery courtesy NASA Earth Observatory"
+          }
+        },
         grid: { name: "GridImageryProvider", option: {} },
         mapbox: {
           name: "MapboxImageryProvider",

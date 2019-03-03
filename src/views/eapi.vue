@@ -1,6 +1,6 @@
 <template>
   <div>
-    <btn class="btn-box">
+    <div class="btn-box">
       <div
         class="btn-box-item"
         :class="{'btn-box-item-selected':curName=='rain'}"
@@ -11,7 +11,7 @@
         :class="{'btn-box-item-selected':curName=='snow'}"
         @click="getEntity('snow')"
       >Snow</div>
-    </btn>
+    </div>
     <base-cesium @getViewer="getViewer" :imgurl="imgurl"></base-cesium>
   </div>
 </template>

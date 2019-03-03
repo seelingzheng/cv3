@@ -1,6 +1,6 @@
 <template>
   <div>
-    <base-cesium @getViewer="getViewer" basepicker="true"></base-cesium>
+    <base-cesium @getViewer="getViewer" basepicker="true" :imgurl="imgurl"></base-cesium>
   </div>
 </template>
 
@@ -12,7 +12,8 @@ export default {
   components: { BaseCesium },
   data() {
     return {
-      viewer: null
+      viewer: null,
+      imgurl: "/images/world.jpg"
     };
   },
 
@@ -91,6 +92,8 @@ export default {
       providerViewModels.push(gaodeMapModel);
 
       this.viewer.baseLayerPicker.viewModel.imageryProviderViewModels = providerViewModels;
+      //设置默认地图源
+      this.viewer.baseLayerPicker.viewModel.selectedImagery = this.viewer.baseLayerPicker.viewModel.imageryProviderViewModels[0];
     }
   }
 };

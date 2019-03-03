@@ -1,5 +1,10 @@
 <template>
-  <div id="cesiumContainer"></div>
+  <div>
+    <div id="cesiumContainer"></div>
+    <!-- <div id="loadingOverlay">
+      <h1>Loading...</h1>
+    </div>-->
+  </div>
 </template>
 
 <script>
@@ -24,7 +29,7 @@ export default {
 
     let initOption = {
       animation: false, //是否创建动画小器件，左下角仪表
-      baseLayerPicker: this.basepicker, //是否显示图层选择器
+      baseLayerPicker: this.basepicker ? this.basepicker : false, //是否显示图层选择器
       fullscreenButton: false, //是否显示全屏按钮
       geocoder: false, //是否显示geocoder小器件，右上角查询按钮
       homeButton: false, //是否显示Home按钮
