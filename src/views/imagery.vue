@@ -50,7 +50,7 @@ export default {
         ctms: {
           name: "createTileMapServiceImageryProvider",
           option: {
-            url: "http://cesiumjs.org/tilesets/imagery/blackmarble",
+            url: "http://cesiumjs.org/tilesets/imagery/blackmarble"
             // proxy: new Cesium.DefaultProxy("/proxy/"),
             // maximumLevel: 8,
             // credit: "Black Marble imagery courtesy NASA Earth Observatory"
@@ -124,7 +124,7 @@ export default {
           name: "UrlTemplateImageryProvider",
           option: {
             url:
-              "  https://webst0{s}.is.autonavi.com/appmaptile?style=6&x={x}&y={y}&z={z}",
+              "https://webst0{s}.is.autonavi.com/appmaptile?style=6&x={x}&y={y}&z={z}",
             subdomains: ["1", "2", "3", "4"]
           },
           road: {

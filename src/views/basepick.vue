@@ -1,6 +1,6 @@
 <template>
   <div>
-    <base-cesium @getViewer="getViewer" basepicker="true" :imgurl="imgurl"></base-cesium>
+    <base-cesium @getViewer="getViewer" :options="options" :imgurl="imgurl"></base-cesium>
   </div>
 </template>
 
@@ -13,7 +13,10 @@ export default {
   data() {
     return {
       viewer: null,
-      imgurl: "/images/world.jpg"
+      imgurl: "/images/world.jpg",
+      options: {
+        baseLayerPicker: true
+      }
     };
   },
 

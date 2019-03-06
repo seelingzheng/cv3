@@ -29,6 +29,7 @@
               <el-menu-item index="1-3" :route="{path:'/terrain'}">TerrainProvider</el-menu-item>
               <el-menu-item index="1-4" :route="{path:'/imagery'}">ImageryProvider</el-menu-item>
               <el-menu-item index="1-5" :route="{path:'/eapi'}">EntityAPI</el-menu-item>
+              <el-menu-item index="1-6" :route="{path:'/event'}">Event</el-menu-item>
               <!-- </el-menu-item-group> -->
             </el-submenu>
             <el-submenu index="2">

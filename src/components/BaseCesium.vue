@@ -11,7 +11,7 @@
 import Cesium from "cesium/Cesium";
 export default {
   name: "BaseCesium",
-  props: ["imgurl", "basepicker"],
+  props: ["imgurl", "options"],
   data() {
     return {
       viewer: null
@@ -29,7 +29,7 @@ export default {
 
     let initOption = {
       animation: false, //是否创建动画小器件，左下角仪表
-      baseLayerPicker: this.basepicker ? this.basepicker : false, //是否显示图层选择器
+      baseLayerPicker: false, //是否显示图层选择器
       fullscreenButton: false, //是否显示全屏按钮
       geocoder: false, //是否显示geocoder小器件，右上角查询按钮
       homeButton: false, //是否显示Home按钮
@@ -49,7 +49,7 @@ export default {
         url: this.imgurl
       });
     }
-
+    if (this.options) initOption = Object.assign(initOption, this.options);
     this.viewer = new Cesium.Viewer("cesiumContainer", initOption);
     //去除版权信息
     this.viewer._cesiumWidget._creditContainer.style.display = "none";
