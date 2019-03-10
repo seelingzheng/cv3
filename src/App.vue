@@ -29,7 +29,9 @@
               <el-menu-item index="1-3" :route="{path:'/terrain'}">TerrainProvider</el-menu-item>
               <el-menu-item index="1-4" :route="{path:'/imagery'}">ImageryProvider</el-menu-item>
               <el-menu-item index="1-5" :route="{path:'/eapi'}">EntityAPI</el-menu-item>
-              <el-menu-item index="1-6" :route="{path:'/event'}">Event</el-menu-item>
+              <el-menu-item index="1-6" :route="{path:'/primitives'}">PrimitiveAPI</el-menu-item>
+              <el-menu-item index="1-7" :route="{path:'/materials'}">Materials</el-menu-item>
+              <el-menu-item index="1-8" :route="{path:'/event'}">Event</el-menu-item>
               <!-- </el-menu-item-group> -->
             </el-submenu>
             <el-submenu index="2">
@@ -40,7 +42,7 @@
               <el-menu-item-group>
                 <span slot="title">Shader</span>
                 <el-menu-item index="2-1" :route="{path:'/shaders'}">Shaders</el-menu-item>
-                <el-menu-item index="2-2" :route="{path:'/materials'}">Materials</el-menu-item>
+                <!-- <el-menu-item index="2-2" :route="{path:'/materials'}">Materials</el-menu-item> -->
                 <!-- <el-menu-item
                   index="2-3"
                   :route='{path:"/heatmap"}'

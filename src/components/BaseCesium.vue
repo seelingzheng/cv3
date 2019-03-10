@@ -1,10 +1,8 @@
 <template>
-  <div>
-    <div id="cesiumContainer"></div>
-    <!-- <div id="loadingOverlay">
+  <div id="cesiumContainer"></div>
+  <!-- <div id="loadingOverlay">
       <h1>Loading...</h1>
-    </div>-->
-  </div>
+  </div>-->
 </template>
 
 <script>

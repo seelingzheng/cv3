@@ -9,17 +9,51 @@
         @click="getImageryProvider(item)"
       >{{item}}</div>
     </div>
+    <panel left="245" top="30">
+      <div class="panel-item">
+        <label>brightness:</label>
+
+        <el-slider class="slider" :min="0" :max="3" :step="0.02" v-model="layerColor.brightness"></el-slider>
+      </div>
+      <div class="panel-item">
+        <label>contrast:</label>
+        <el-slider class="slider" :min="0" :max="3" :step="0.02" v-model="layerColor.contrast"></el-slider>
+      </div>
+      <div class="panel-item">
+        <label>hue:</label>
+        <el-slider class="slider" :min="0" :max="3" :step="0.02" v-model="layerColor.hue"></el-slider>
+      </div>
+      <div class="panel-item">
+        <label>saturation:</label>
+        <el-slider class="slider" :min="0" :max="3" :step="0.02" v-model="layerColor.saturation"></el-slider>
+      </div>
+      <div class="panel-item">
+        <label>gamma:</label>
+        <el-slider class="slider" :min="0" :max="3" :step="0.02" v-model="layerColor.gamma"></el-slider>
+      </div>
+    </panel>
     <base-cesium @getViewer="getViewer" :imgurl="imgurl"></base-cesium>
   </div>
 </template>
 
 <script>
 import Cesium from "cesium/Cesium";
-import BaseCesium from "../components/BaseCesium";
+import { BaseCesium, Panel } from "@/components";
 export default {
   name: "",
   components: {
-    BaseCesium
+    BaseCesium,
+    Panel
+  },
+  watch: {
+    layerColor: {
+      handler(n, o) {
+        if (n != null) {
+          this.resetLayerColor();
+        }
+      },
+      deep: true
+    }
   },
   data() {
     return {
@@ -27,6 +61,7 @@ export default {
       viewer: null,
       curName: null,
       viewerLayers: null,
+      layerColor: null,
       imgProviders: {
         arcgis: {
           name: "ArcGisMapServerImageryProvider",
@@ -183,7 +218,15 @@ export default {
       }
     };
   },
-
+  beforeMount() {
+    this.layerColor = {
+      brightness: 1,
+      contrast: 1,
+      hue: 1,
+      saturation: 1,
+      gamma: 1
+    };
+  },
   methods: {
     getViewer(v) {
       this.viewer = v;
@@ -209,10 +252,33 @@ export default {
         let labelLayer = new Cesium[curObj.name](curObj.road);
         this.viewerLayers.addImageryProvider(labelLayer, 2);
       }
+      this.resetLayerColor();
+    },
+    resetLayerColor() {
+      let layer = this.viewerLayers.get(0);
+      Object.keys(this.layerColor).forEach(key => {
+        layer[key] = this.layerColor[key];
+      });
     }
   }
 };
 </script>
 
-<style lang = 'less' scoped >
+<style lang = 'scss' scoped >
+.panel-item {
+  padding: 5px;
+  color: white;
+  width: 290px !important;
+  display: flex;
+  height: 30px;
+  line-height: 30px;
+  label {
+    width: 90px;
+    text-align: right;
+    margin-right: 15px;
+  }
+  .slider {
+    width: 180px;
+  }
+}
 </style>

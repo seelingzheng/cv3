@@ -18,6 +18,13 @@
         @click="getProperty(item)"
       >{{item}}</div>
     </div>
+    <div class="btn-box" style="top:80px">
+      <div
+        class="btn-box-item"
+        :class="{'btn-box-item-selected':curName=='czml'}"
+        @click="getCZML()"
+      >CZML</div>
+    </div>
     <base-cesium @getViewer="getViewer" :options="options" :imgurl="imgurl"></base-cesium>
   </div>
 </template>
@@ -25,6 +32,7 @@
 <script>
 import Cesium from "cesium/Cesium";
 import BaseCesium from "../components/BaseCesium";
+import czml from "@/assets/data/path_czml";
 import { lxzx3, lxzx2 } from "@/assets/data/graphics.js";
 import { gcj02towgs84 } from "@/utils/transfer.js";
 export default {
@@ -49,7 +57,8 @@ export default {
       options: {
         timeline: true, //是否显示时间轴
         animation: true
-      }
+      },
+      materials: null
     };
   },
 
@@ -69,6 +78,7 @@ export default {
           color: Cesium.Color.YELLOW
         }
       },
+
       box: {
         name: "Blue box",
         position: Cesium.Cartesian3.fromDegrees(
@@ -81,9 +91,49 @@ export default {
           material: Cesium.Color.BLUE
         }
       },
+      label: {
+        name: "label",
+        position: Cesium.Cartesian3.fromDegrees(
+          this.defaultPoint[0],
+          this.defaultPoint[1],
+          0
+        ),
+        label: {
+          id: "my label",
+          text: "זה טקסט בעברית \n ועכשיו יורדים שורה"
+        }
+      },
+
+      billborad: {
+        // url:"https://cesiumjs.org/Cesium/Apps/Sandcastle/index.html?src=Billboards.html"
+        id: "广告牌",
+        position: Cesium.Cartesian3.fromDegrees(114, 40.03883),
+        billboard: {
+          image: "/images/points/normal.png", // default: undefined
+          show: true, // default
+          pixelOffset: new Cesium.Cartesian2(0, -50), // default: (0, 0)
+          eyeOffset: new Cesium.Cartesian3(0.0, 0.0, 0.0), // default
+          horizontalOrigin: Cesium.HorizontalOrigin.CENTER, // default
+          verticalOrigin: Cesium.VerticalOrigin.BOTTOM, // default: CENTER
+          scale: 0.5, // default: 1.0
+          color: Cesium.Color.LIME, // default: WHITE
+          // rotation: Cesium.Math.PI_OVER_FOUR, // default: 0.0
+          alignedAxis: Cesium.Cartesian3.ZERO, // default
+          width: 76, // default: undefined
+          height: 112, // default: undefined
+          sizeInMeters: true, //跟随缩放
+          translucencyByDistance: new Cesium.NearFarScalar(
+            1.5e2,
+            2.0,
+            1.5e7,
+            0.5
+          ) //根据缩放比例显示透明度
+        }
+      },
       circle: {
         position: Cesium.Cartesian3.fromDegrees(111.0, 40.0, 150000.0),
         name: "Green circle at height",
+
         ellipse: {
           semiMinorAxis: 300000.0,
           semiMajorAxis: 300000.0,
@@ -278,7 +328,6 @@ export default {
     getViewer(v) {
       this.viewer = v;
       this.addNameOverLay();
-
       this.rejectPickerEvent();
     },
     initEntity(name) {
@@ -333,6 +382,14 @@ export default {
       } else {
         this.getSampleProperty(entity, p.type);
       }
+    },
+
+    getCZML() {
+      this.viewer.dataSources
+        .add(Cesium.CzmlDataSource.load(czml))
+        .then(function(ds) {
+          viewer.trackedEntity = ds.entities.getById("path");
+        });
     },
 
     getSampleProperty(entityObj, type) {
