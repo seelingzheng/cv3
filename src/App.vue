@@ -20,7 +20,7 @@
             <el-submenu index="1">
               <template slot="title">
                 <i class="fa fa-map"></i>
-                <span slot="title">&nbsp;官方API</span>
+                <span slot="title">&nbsp;基础使用</span>
               </template>
               <!-- <el-menu-item-group> -->
               <span slot="title"></span>
@@ -37,11 +37,18 @@
             <el-submenu index="2">
               <template slot="title">
                 <i class="fa fa-internet-explorer"></i>
+                <span slot="title">&nbsp;工具使用</span>
+              </template>
+              <el-menu-item index="2-1" :route="{path:'/tip'}">ToolTip</el-menu-item>
+            </el-submenu>
+            <el-submenu index="3">
+              <template slot="title">
+                <i class="fa fa-internet-explorer"></i>
                 <span slot="title">&nbsp;综合案例</span>
               </template>
               <el-menu-item-group>
                 <span slot="title">Shader</span>
-                <el-menu-item index="2-1" :route="{path:'/shaders'}">Shaders</el-menu-item>
+                <el-menu-item index="3-1" :route="{path:'/shaders'}">Shaders</el-menu-item>
                 <!-- <el-menu-item index="2-2" :route="{path:'/materials'}">Materials</el-menu-item> -->
                 <!-- <el-menu-item
                   index="2-3"
