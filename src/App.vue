@@ -40,6 +40,9 @@
                 <span slot="title">&nbsp;工具使用</span>
               </template>
               <el-menu-item index="2-1" :route="{path:'/tip'}">ToolTip</el-menu-item>
+              <el-menu-item index="2-2" :route="{path:'/t_cthree'}">Cesium&Three</el-menu-item>
+              <el-menu-item index="2-3" :route="{path:'/t_aqi'}">AQI</el-menu-item>
+              <!-- <el-menu-item index="2-3" :route="{path:'/threed'}">ThreeDemo</el-menu-item> -->
             </el-submenu>
             <el-submenu index="3">
               <template slot="title">

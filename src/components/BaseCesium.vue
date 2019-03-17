@@ -1,8 +1,5 @@
 <template>
   <div id="cesiumContainer"></div>
-  <!-- <div id="loadingOverlay">
-      <h1>Loading...</h1>
-  </div>-->
 </template>
 
 <script>
@@ -95,7 +92,8 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 #cesiumContainer {
-  width: auto;
+  position: absolute;
+  width: 100%;
   height: calc(100vh);
 }
 .cesium-widget-credits {

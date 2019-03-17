@@ -7,9 +7,12 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
-    "@types/cesium": "^1.47.3",
+    "@types/cesium": "^1.54.1",
+    "@types/three": "^0.93.27",
+    "axios": "^0.18.0",
     "cesium": "^1.54.0",
     "element-ui": "^2.5.4",
+    "three": "^0.102.1",
     "vue": "^2.6.6",
     "vue-router": "^3.0.1"
   },

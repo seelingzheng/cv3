@@ -1,12 +1,15 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
-
+import axios from 'axios'
 //引入 cesium
 import Cesium from 'cesium/Cesium'
 import widget from 'cesium/Widgets/widgets.css'
 
 Vue.Cesium = Vue.prototype.$Cesium = Cesium;
+
+Vue.http = Vue.prototype.$http = axios;
+
 
 // ElementUI
 import 'element-ui/lib/theme-chalk/index.css';
