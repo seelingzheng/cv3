@@ -47,6 +47,16 @@
             <el-submenu index="3">
               <template slot="title">
                 <i class="fa fa-internet-explorer"></i>
+                <span slot="title">&nbsp;服务使用</span>
+              </template>
+              <el-menu-item index="3-1" :route="{path:'/geojson_ds'}">GeoJSON</el-menu-item>
+              <!-- <el-menu-item index="2-2" :route="{path:'/t_cthree'}">Cesium&Three</el-menu-item>
+              <el-menu-item index="2-3" :route="{path:'/t_aqi'}">AQI</el-menu-item>
+              <el-menu-item index="2-3" :route="{path:'/threed'}">ThreeDemo</el-menu-item>-->
+            </el-submenu>
+            <el-submenu index="10">
+              <template slot="title">
+                <i class="fa fa-internet-explorer"></i>
                 <span slot="title">&nbsp;综合案例</span>
               </template>
               <el-menu-item-group>
@@ -132,9 +142,11 @@ body {
   .btn-box {
     user-select: none;
     position: absolute;
+    width: 80%;
     right: 10px;
     z-index: 1;
     display: flex;
+    flex-wrap: wrap;
     background: #0c0c7566;
     border-radius: 5px;
     &-item {

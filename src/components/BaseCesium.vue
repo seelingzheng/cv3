@@ -93,7 +93,7 @@ export default {
 <style scoped>
 #cesiumContainer {
   position: absolute;
-  width: 100%;
+  width: 84%;
   height: calc(100vh);
 }
 .cesium-widget-credits {

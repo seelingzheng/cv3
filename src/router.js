@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import HelloCesium from '@/views/hellocesium.vue'
+import HelloCesium from '@/views/base/hellocesium.vue'
 
 var routes = [{
   path: '/',
@@ -11,7 +11,7 @@ var routes = [{
   path: '*',
   redirect: '/',
 }]
-let files = require.context('./views', false, /\.vue$/)
+let files = require.context('./views', true, /\.vue$/)
 
 files.keys().forEach(key => {
   let name = key.split('/').pop().split('.').shift();

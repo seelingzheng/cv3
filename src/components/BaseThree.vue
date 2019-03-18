@@ -54,7 +54,7 @@ export default {
 <style lang="scss"  scoped>
 #basethree {
   position: absolute;
-  width: 100%;
+   width: 84%;
   height: calc(100vh);
   pointer-events: none;
 }
