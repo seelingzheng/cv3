@@ -32,7 +32,7 @@
 
 <script>
 import Cesium from "cesium/Cesium";
-import BaseCesium from "@/components/BaseCesium";
+import {BaseCesium} from "@/components";
 import * as turf from "@turf/turf";
 export default {
   components: {

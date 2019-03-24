@@ -59,16 +59,13 @@
                 <i class="fa fa-internet-explorer"></i>
                 <span slot="title">&nbsp;综合案例</span>
               </template>
-              <el-menu-item-group>
-                <span slot="title">Shader</span>
-                <el-menu-item index="3-1" :route="{path:'/shaders'}">Shaders</el-menu-item>
-                <!-- <el-menu-item index="2-2" :route="{path:'/materials'}">Materials</el-menu-item> -->
-                <!-- <el-menu-item
-                  index="2-3"
-                  :route='{path:"/heatmap"}'
-                >Heatmap
-                </el-menu-item>-->
-              </el-menu-item-group>
+              <!-- <el-menu-item-group>
+              <span slot="title">Shader</span>-->
+              <el-menu-item index="3-1" :route="{path:'/shaders'}">Shaders</el-menu-item>
+              <el-menu-item index="3-2" :route="{path:'/minimap'}">鹰眼</el-menu-item>
+              <el-menu-item index="3-3" :route="{path:'/split'}">Split</el-menu-item>
+
+              <!-- </el-menu-item-group> -->
             </el-submenu>
           </el-menu>
         </div>
@@ -158,6 +155,10 @@ body {
         color: aqua;
       }
     }
+  }
+  .cesium-widget-credits {
+    display: none !important;
+    visibility: hide !important;
   }
 }
 </style>

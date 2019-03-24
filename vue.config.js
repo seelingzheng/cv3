@@ -7,7 +7,7 @@ let cesiumSource = './node_modules/cesium/Source'
 let cesiumWorkers = '../Build/Cesium/Workers'
 // let cesiumWorkers = 'Workers'
 module.exports = {
-  baseUrl: '',
+  publicPath: '',
   devServer: {
     open: false,
     https: false,
@@ -21,7 +21,7 @@ module.exports = {
     //                 '^/api': ''//请求的时候使用这个api就可以
     //             }
     //         }
-            
+
     //     } 
   },
   outputDir: 'docs',

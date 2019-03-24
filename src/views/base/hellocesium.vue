@@ -6,7 +6,7 @@
 
 <script>
 import Cesium from "cesium/Cesium";
-import BaseCesium from "@/components/BaseCesium";
+import {BaseCesium} from "@/components";
 
 export default {
   components: {
