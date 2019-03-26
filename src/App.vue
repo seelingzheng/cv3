@@ -64,6 +64,7 @@
               <el-menu-item index="3-1" :route="{path:'/shaders'}">Shaders</el-menu-item>
               <el-menu-item index="3-2" :route="{path:'/minimap'}">鹰眼</el-menu-item>
               <el-menu-item index="3-3" :route="{path:'/split'}">Split</el-menu-item>
+              <el-menu-item index="3-4" :route="{path:'/draw'}">Draw</el-menu-item>
 
               <!-- </el-menu-item-group> -->
             </el-submenu>
