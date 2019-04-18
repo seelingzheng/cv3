@@ -1,6 +1,6 @@
 <template>
   <div>
-    <base-cesium @getViewer="getViewer" :options="options"></base-cesium>
+    <base-cesium @getViewer="getViewer" :imgurl="imgurl" :options="options"></base-cesium>
     <base-three @getThree="getThree" :options="threeoptions"></base-three>
   </div>
 </template>
@@ -19,7 +19,7 @@ export default {
     return {
       isCesium: false,
       isThree: false,
-
+      // imgurl: "/images/world.jpg",
       // boundaries in WGS84 around the object
       minWGS84: [115.23, 39.55],
       maxWGS84: [116.23, 41.55],
@@ -64,7 +64,8 @@ export default {
         geocoder: false,
         automaticallyTrackDataSourceClocks: false,
         dataSources: null,
-        clock: null
+        clock: null,
+        terrainShadows: Cesium.ShadowMode.DISABLED
       },
       threeoptions: {
         far: 10 * 1000 * 1000,

@@ -20,6 +20,8 @@ export default {
     };
   },
   mounted() {
+    Cesium.Ion.defaultAccessToken =
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI5NTFhMDMwMi02YWVjLTRmNmItOThjNS00MDI1YTVkNjdhODciLCJpZCI6NTY0Miwic2NvcGVzIjpbImFzciIsImdjIl0sImlhdCI6MTU0MzgyNzA5MH0.4OIh4gPgWSceyKB4iHliAX59933ryNrXBwVut46WE78";
     //设置默认 home
     var china = Cesium.Rectangle.fromDegrees(100, 10, 120, 70);
     Cesium.Camera.DEFAULT_VIEW_RECTANGLE = china;
