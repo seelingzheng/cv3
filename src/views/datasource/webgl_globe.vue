@@ -2,9 +2,9 @@
   <div>
     <div class="btn-box">
       <div
-        v-for="s in seriesName"
+        v-for="s in series"
         class="btn-box-item"
-        :class="{'btn-box-item-selected':curStyleName== s}"
+        :class="{'btn-box-item-selected':curName== s}"
         @click="getNewData(s)"
       >{{s}}</div>
     </div>
@@ -327,8 +327,6 @@ WebGLGlobeDataSource.prototype._setLoading = function(isLoading) {
 };
 
 export default {
-  name: "WebGL GLobe",
-
   components: {
     BaseCesium
   },
@@ -336,10 +334,8 @@ export default {
     return {
       viewer: null,
       series: [],
-      curName: "",
-      dataSources: {},
-      curDataSource: null,
-      curStyleName: "basic"
+      curName: "1990",
+      dataSource: null
     };
   },
   mounted() {},
@@ -356,28 +352,24 @@ export default {
       // 开启全球光照
       v.scene.globe.enableLighting = true;
 
-      var dataSource = new WebGLGlobeDataSource();
-      dataSource
+      vm.dataSource = new WebGLGlobeDataSource();
+      vm.dataSource
         .loadUrl("./data/datasource/population909500.json")
         .then(function() {
           //After the initial load, create buttons to let the user switch among series.
-          function createSeriesSetter(seriesName) {
-            return function() {
-              dataSource.seriesToDisplay = seriesName;
-            };
-          }
+          for (var i = 0; i < vm.dataSource.seriesNames.length; i++) {
+            var seriesName = vm.dataSource.seriesNames[i];
 
-          for (var i = 0; i < dataSource.seriesNames.length; i++) {
-            var seriesName = dataSource.seriesNames[i];
             vm.series.push(seriesName);
-            // Sandcastle.addToolbarButton(
-            //   seriesName,
-            //   createSeriesSetter(seriesName)
-            // );
           }
+          vm.dataSource.seriesToDisplay = vm.series[0];
+          vm.viewer.clock.shouldAnimate = false;
+          vm.viewer.dataSources.add(vm.dataSource);
         });
-      this.viewer.clock.shouldAnimate = false;
-      this.viewer.dataSources.add(dataSource);
+    },
+    getNewData(name) {
+      this.curName = name;
+      this.dataSource.seriesToDisplay = name;
     }
   }
 };

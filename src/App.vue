@@ -32,7 +32,8 @@
                 <el-menu-item index="1-6" :route="{path:'/primitives'}">PrimitiveAPI</el-menu-item>
                 <el-menu-item index="1-7" :route="{path:'/materials'}">Materials</el-menu-item>
                 <el-menu-item index="1-8" :route="{path:'/event'}">Event</el-menu-item>
-                <el-menu-item index="1-9" :route="{path:'/clipplane'}">ClippingPlane</el-menu-item>
+                <el-menu-item index="1-9" :route="{path:'/geocoder'}">GeoCoder</el-menu-item>
+                <el-menu-item index="1-10" :route="{path:'/clipplane'}">ClippingPlane</el-menu-item>
                 <!-- </el-menu-item-group> -->
               </el-submenu>
               <el-submenu index="2">
@@ -168,6 +169,12 @@ body {
   .cesium-widget-credits {
     display: none !important;
     visibility: hide !important;
+  }
+  .cesium-viewer-geocoderContainer {
+    position: relative;
+    display: inline-block;
+    margin: 0 3px;
+    top: 30px;
   }
 }
 </style>
